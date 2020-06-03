@@ -1,0 +1,13 @@
+{% extends 'accounts/base.html' %}
+{% block subcontent %}
+{% load bootstrap3 %}
+<h1>Sign In</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" class="btn  btn-default" value="Sign In">
+</form>
+
+{% endblock %}
+
