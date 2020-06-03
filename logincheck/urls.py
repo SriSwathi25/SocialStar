@@ -19,9 +19,11 @@ from logincheck import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/home', views.HomePage.as_view(), name="home"),
+    path('', views.HomePage.as_view(), name="home"),
+    path('welcome/',views.Welcome.as_view(), name='welcome'),
+    path('thanks/',views.Thanks.as_view(), name='thanks'),
     path('', include('accounts.urls')),
-    path('/welcome',views.Welcome.as_view(), name='welcome'),
-    path('/thanks',views.Thanks.as_view(), name='thanks'),
+    path('', include('posts.urls')),
+    path('', include('groups.urls')),
 
 ]

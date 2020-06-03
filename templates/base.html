@@ -20,17 +20,17 @@
         <!--tips: to fill or justify the .nav-pills space use .nav-fill or .nav-justified-->
         
         <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="{% url 'posts:create' %}" role="tab" aria-controls="pills-profile" aria-selected="false">
                 Posts
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="{% url 'groups:all' %}" role="tab" aria-controls="pills-profile" aria-selected="false">
                 Groups
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="{% url 'groups:create' %}" role="tab" aria-controls="pills-profile" aria-selected="false">
                 Create Group
             </a>
         </li>
@@ -60,7 +60,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="{% url 'groups:all' %}" role="tab" aria-controls="pills-profile" aria-selected="false">
                 Groups
             </a>
         </li>
@@ -68,6 +68,14 @@
 
     {% endif %}
     <div class="container"><div class="jumbotron">
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li class='alert'>{{ message }}</li>
+            {% endfor %}
+        </ul>
+
+        {% endif %}
     {% block subcontent %}
     {% endblock %}
 </div></div>
