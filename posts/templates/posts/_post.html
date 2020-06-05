@@ -1,10 +1,9 @@
 <div>
     <h3>{{ post.message_html|safe }}</h3>
     <div>
-        <strong>{{ post.user.username }}</strong>
         <h5>
-        <a href="{% url 'posts:for_user' username=post.user.username %}"></a>
-        <time><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}"></a></time>
+        <a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a><br/>
+        <time><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">Created on : {{ post.created_at }}</a></time>
     </h5>
     <div>
         {% if user.is_authenticated and post.user == user %}
