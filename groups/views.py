@@ -6,6 +6,7 @@ from groups.models import Group, GroupMember
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 # Create your views here.
+
 class CreateGroup(LoginRequiredMixin, CreateView):
     fields = ('name', 'description')
     model = Group

@@ -13,6 +13,12 @@ import misaka
 
 
 from django.contrib.auth import views as auth_views
+
+        
+def index(request):
+    template = 'accounts/index.html'
+    return render(request,template,{})
+
 class SignUp(CreateView):
     form_class = forms.UserCreateForm
     success_url = reverse_lazy('accounts:signin')
@@ -28,7 +34,7 @@ class SignUp(CreateView):
         #send_mail(subject=subject, message=message, from_email=from_email, recipient_list=[to_email,], fail_silently=fail_silently)
         mail = EmailMultiAlternatives(subject, message, from_email, [to_email,])
         mail.attach_alternative(message_html,"text/html")
-        mail.send()
+        #mail.send()
 
         return super(SignUp,self).form_valid(form)
 
